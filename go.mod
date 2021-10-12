@@ -1,4 +1,4 @@
-module cluster-notifier-api-go
+module github.com/armosec/cluster-notifier-api-go
 
 go 1.17
 
