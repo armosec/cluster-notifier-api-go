@@ -99,7 +99,7 @@ func httpRespToString(resp *http.Response) (string, error) {
 		return strBuilder.String(), err
 	}
 	if resp.StatusCode < 200 || resp.StatusCode >= 300 {
-		err = fmt.Errorf("Response status: %d. content: %s", resp.StatusCode, strBuilder.String())
+		err = fmt.Errorf("response status: %d. content: %s", resp.StatusCode, strBuilder.String())
 	}
 	return strBuilder.String(), err
 }

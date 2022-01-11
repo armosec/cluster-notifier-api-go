@@ -13,6 +13,7 @@ const (
 )
 
 const (
-	TargetComponentPostureValue = "PolicyValidator"
-	TargetComponentLoggerValue  = "Logger"
+	TargetComponentPostureValue   = "PolicyValidator"
+	TargetComponentLoggerValue    = "Logger"
+	TargetComponentTriggerHandler = "InClusterTriggerHandler"
 )
