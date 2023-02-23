@@ -74,12 +74,12 @@ func setNotification(targetMap map[string]string, message interface{}, jsonForma
 	var m []byte
 	if jsonFormat {
 		if m, err = json.Marshal(notification); err != nil {
-			err = fmt.Errorf("failed marshling message to bson. message: '%v', reason: '%s'", notification, err.Error())
+			err = fmt.Errorf("failed marshaling message to bson. message: '%v', reason: '%s'", notification, err.Error())
 		}
 	} else {
 
 		if m, err = bson.Marshal(notification); err != nil {
-			err = fmt.Errorf("failed marshling message to bson. message: '%v', reason: '%s'", notification, err.Error())
+			err = fmt.Errorf("failed marshaling message to bson. message: '%v', reason: '%s'", notification, err.Error())
 		}
 	}
 	return m, err
