@@ -9,15 +9,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golang/glog"
 	"gopkg.in/mgo.v2/bson"
 )
 
 // PushNotificationServer push notification to rest api server. if jsonFormat is set to false, will Marshal useing bson
 func PushNotificationServer(edgeURL string, targetMap map[string]string, message interface{}, jsonFormat bool) error {
 	var err error
-
-	glog.Infof("Pushing notification to: '%s'", edgeURL)
 
 	// setup notification
 	notf, err := setNotification(targetMap, message, jsonFormat)
@@ -40,11 +37,6 @@ func PushNotificationServer(edgeURL string, targetMap map[string]string, message
 
 // sendCommandToEdge sends the HTTP request
 func sendCommandToEdge(client *http.Client, edgeURL string, message []byte) error {
-	defer func() {
-		if err := recover(); err != nil {
-			glog.Errorf("In sendCommandToEdge, recover, reason: %v", err)
-		}
-	}()
 
 	req, err := http.NewRequest("POST", edgeURL, bytes.NewReader(message))
 	req.Close = true
